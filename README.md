@@ -13,16 +13,6 @@ Kotlin
 5
 个物品，同时包裹的数量最少。方法可能不是最佳的。
 
-写
-MoeTax
-的目的是做出来一个真正能用的完全
-Kotlin
-跨平台、代码包括
-UI
-都几乎完全共享的程序。它不求复杂，也不需要难搞的第三方库依赖。使用的唯一一个第三方库
-Kolor
-是为了动态取色主题。
-
 ## 背景
 
 如果您时间紧，您可以跳过此部分。
@@ -147,6 +137,16 @@ EMS
 
 ## 用法
 
+写
+MoeTax
+的目的是做出来一个真正能用的完全
+Kotlin
+跨平台、代码包括
+UI
+都几乎完全共享的程序。它不求复杂，也不需要难搞的第三方库依赖。使用的唯一一个第三方库
+Kolor
+是为了动态取色主题。
+
 这是一个
 Compose
 Multiplatform
@@ -167,13 +167,25 @@ Apple
 
 高松灯首先需要打开代切平台，抄写下实时的日元汇率。每个软件的汇率都是不一样的，不能在线获取。
 
-随后可以自行添加包裹。填写好独一无二的每个商品名称是比较重要的，因为索引很难找到对应商品。此外应该填写所有的手续费等费用，没有就填零。优惠券抵扣的也是要算进去的。
+随后自行添加包裹。填写好独一无二的每个商品名称是比较重要的。此外应该填写所有的手续费等杂费费用，没有就填零。优惠券抵扣的也是要算进去的。
 
-最后系统将输出每个包裹中的物品，包裹的价格总值（以日元计）和包裹的税费（以人民币计）。
+最后
+MoeTax
+将输出每个包裹中的物品，包裹的总价和包裹的税费。
 
 现在，高松灯可以通过返回的商品名称合单发货了，或者根据计算结果再购买一些还能免税寄的小吧唧。希望她的包裹结实完好。
 
-## CLI 用法
+## 截图
+
+| Desktop                                                                                                                                                                                                                 | WebAssembly                                                                                                                                                                                                         |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <center><picture><img alt="A screenshot MoeTax in Desktop" src="assets/java_1.png" width="320"></picture> <picture><img alt="A screenshot of MoeTax in Desktop" src="assets/java_2.png" width="320"></picture></center> | <center><picture><img alt="A screenshot MoeTax in Web" src="assets/msedge_1.png" width="320"></picture> <picture><img alt="A screenshot of MoeTax in Web" src="assets/msedge_2.png" width="320"></picture></center> |
+
+| Android                                                                                                                                                                                                                       | iOS           |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| <center><picture><img alt="A screenshot MoeTax in Android" src="assets/Android_1.png" width="320"></picture> <picture><img alt="A screenshot of MoeTax in Android" src="assets/Android_2.png" width="320"></picture></center> | Working on it |
+
+## CLI
 
 在
 `commonMain`
@@ -190,19 +202,24 @@ package
 Compose
 Multiplatform
 的问题。
+MoeTax
+用于测试
+Compose
+Multiplatform
+在实际应用下的各种问题。
 
 ### Compose for Web, WasmJS
 
 1. [无法调用系统字体，并使得中文显示为方框。](https://github.com/JetBrains/compose-multiplatform/issues/3967)
    此项目使用了
    3000
-   中文常用字字库、常见符号、全片假名、常见日本汉字以缩减
+   中文常用字字库、常见符号、片假名、日本汉字以缩减
    Noto
    Sans
    CJK
    至
    1.12MB
-   并延迟加载。
+   并延迟加载。但仍然不尽人意。
 2. [不支持任何快捷键。](https://github.com/JetBrains/compose-multiplatform/issues/4036)
    无法执行任何键盘快捷键，包括全选、复制和粘贴。
 3. 无法输入中文。输入法将只会调用英文输入法。
@@ -231,7 +248,7 @@ Multiplatform
    Noto
    Sans
    CJK
-   代替，将会更快加载。
+   缩减版代替，将会更快加载。
 10. 右键单击也算作左键单击。没有长按事件。
 11. STATUS_ACCESS_VIOLATION
     仍然会在
@@ -254,7 +271,10 @@ Multiplatform
     版本) 会莫名其妙地解决问题。在打开
     Microsoft Edge 的严格站点安全性 (对此网站使用增强的安全性) 后无法使用。
 
-You can open the web application by running the `:composeApp:wasmJsBrowserDevelopmentRun` Gradle task.
+## 构建
+
+- 您可以使用 `./gradlew :composeApp:wasmJsBrowserDevelopmentRun` 来在浏览器中运行项目。
+- 您可以使用 `./gradlew :composeApp:run` 来在桌面上运行项目。
 
 ## License
 
