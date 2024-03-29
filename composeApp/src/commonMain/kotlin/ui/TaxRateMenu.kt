@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.dp
 import main.Item
 import main.RATE
 
-private val taxString = arrayOf("20%", "16%")
+private val taxString = arrayOf("20%", "13%")
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Stable
