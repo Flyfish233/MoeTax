@@ -26,15 +26,16 @@ kotlin {
         binaries.executable()
     }
 
+    // TODO: Looks like useless, remove in the future
     androidTarget {
         compilations.all {
-            // Look like useless
             kotlinOptions {
                 jvmTarget = "17"
             }
         }
     }
 
+    // For iToddlers
     listOf(
         iosX64(),
         iosArm64(),
@@ -87,14 +88,31 @@ android {
         versionCode = 1
         versionName = "1.0"
     }
+
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/AL2.0"
+            excludes += "/META-INF/LGPL2.1"
+            excludes += "/META-INF/LICENSE-notice.md"
+            excludes += "/META-INF/LICENSE.md"
+            excludes += "/META-INF/NOTICE.md"
+            excludes += "/META-INF/NOTICE"
+            excludes += "/META-INF/LICENSE"
+            excludes += "/META-INF/NOTICE.txt"
+            excludes += "/META-INF/LICENSE.txt"
+            excludes += "/META-INF/INDEX.LIST"
+            excludes += "/META-INF/MANIFEST.MF"
+            excludes += "/META-INF/DEPENDENCIES"
+            excludes += "/META-INF/skiko.kotlin_module"
+            excludes += "/META-INF/desktop.kotlin_module"
+            excludes += "/META-INF/library.kotlin_module"
         }
     }
+
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
         }
     }
     compileOptions {
@@ -114,6 +132,11 @@ compose.desktop {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.flyfish233.moetax"
             packageVersion = "1.0.0"
+        }
+
+        buildTypes.release.proguard {
+            obfuscate.set(true)
+            configurationFiles.from(project.file("compose-desktop.pro"))
         }
     }
 }
