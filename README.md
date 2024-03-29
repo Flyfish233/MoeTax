@@ -1,13 +1,13 @@
-This is Kotlin Multiplatform based
+Kotlin Multiplatform
 Knapsack solver targeting Android,
 Web, iOS
 and Desktop,
 aiming for experiencing Compose Multiplatform.
 
 **MoeTax**
-是用
+是纯
 Kotlin
-写的背包问题程序。它用于按要求打包包裹。使用户海淘了大量物品时，能够保证每个包裹的进口税小于或等于
+背包问题求解器。它用于按要求打包包裹。使用户海淘了大量物品时，能够保证每个包裹的进口税小于或等于
 50
 人民币的免征税额度，一个包裹最多含
 5
@@ -50,7 +50,7 @@ TV
   `CNY 49.00`。
 
 - 她购买的物品，品类要不就是收
-  13%
+  16%
   进口税，要不就是收
   20%
   进口税的。
@@ -177,13 +177,13 @@ MoeTax
 
 ## 截图
 
-| Desktop                                                                                                                                                                                                                 | WebAssembly                                                                                                                                                                                                         |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <center><picture><img alt="A screenshot MoeTax in Desktop" src="assets/java_1.png" width="320"></picture> <picture><img alt="A screenshot of MoeTax in Desktop" src="assets/java_2.png" width="320"></picture></center> | <center><picture><img alt="A screenshot MoeTax in Web" src="assets/msedge_1.png" width="320"></picture> <picture><img alt="A screenshot of MoeTax in Web" src="assets/msedge_2.png" width="320"></picture></center> |
+| Desktop                                                                                                                                                                                                | WebAssembly                                                                                                                                                                                        |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <center><img alt="A screenshot MoeTax in Desktop" src="assets/java_1.png" width="320px"></center> <center><img alt="A screenshot of MoeTax in Desktop" src="assets/java_2.png" width="320px"></center> | <center><img alt="A screenshot MoeTax in Web" src="assets/msedge_1.png" width="320px"></center> <center><img alt="A screenshot of MoeTax in Web" src="assets/msedge_2.png" width="320px"></center> |
 
-| Android                                                                                                                                                                                                                       | iOS           |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| <center><picture><img alt="A screenshot MoeTax in Android" src="assets/Android_1.png" width="320"></picture> <picture><img alt="A screenshot of MoeTax in Android" src="assets/Android_2.png" width="320"></picture></center> | Working on it |
+| Android                                                                                                                                                                                                      | iOS           |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| <center><img alt="A screenshot MoeTax in Android" src="assets/Android_1.png" width="320px"></center> <center><img alt="A screenshot of MoeTax in Android" src="assets/Android_2.png" width="320px"></center> | Working on it |
 
 ## CLI
 
@@ -195,6 +195,10 @@ package
 下，有一个
 `main`
 函数。
+
+可以直接使用预定义的
+`testItem`
+属性进行测试，或者自行输入。
 
 ## 已知问题
 
@@ -231,7 +235,7 @@ Multiplatform
    Flutter
    一样，它不支持缩放，并且在笔记本电脑用户使用触摸板进行双指缩放时，出现显示异常。
 6. [在所有的高分辨率屏幕上显示异常。](https://github.com/JetBrains/compose-multiplatform/issues/4517)
-   同时导致字体渲染模糊。在手机上可能显示很小，也无法进行缩放操作。
+   同时导致字体渲染模糊。在手机上可能显示很小，也无法进行缩放操作。不支持手机竖屏。
 7. 本程序的点击事件全部错位。其他平台均完全正常，也未见任何异常。
 8. 当单个物品的关税超过
    50
