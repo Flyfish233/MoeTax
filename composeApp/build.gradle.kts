@@ -85,8 +85,8 @@ android {
         applicationId = "com.flyfish233.moetax"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.1"
     }
 
     packaging {
@@ -131,7 +131,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.flyfish233.moetax"
-            packageVersion = "1.0.0"
+            packageVersion = "1.0.1"
         }
 
         buildTypes.release.proguard {

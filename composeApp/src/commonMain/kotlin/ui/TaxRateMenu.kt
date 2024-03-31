@@ -8,7 +8,8 @@ import androidx.compose.ui.unit.dp
 import main.Item
 import main.RATE
 
-private val taxString = arrayOf("20%", "13%")
+private val taxRateOptions = arrayOf(RATE.THIRTEEN, RATE.TWENTY)
+private val taxRateStrings = arrayOf("13%", "20%")
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Stable
@@ -17,27 +18,26 @@ fun TaxRateMenu(
     item: Item, onItemChanged: (Item) -> Unit,
 ) {
     var expanded by remember { mutableStateOf(false) }
-    var selectedText by remember { mutableStateOf(taxString[0]) }
+    var selectedOption by remember { mutableStateOf(item.taxRate) }
 
     ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = {
         expanded = !expanded
     }) {
         TextField(
-            value = selectedText,
+            value = taxRateStrings[taxRateOptions.indexOf(selectedOption)],
             label = { Text("税率") },
-            onValueChange = {
-                onItemChanged(item.copy(taxRate = if (it == "20%") RATE.TWENTY else RATE.THIRTEEN))
-            },
+            onValueChange = {},
             readOnly = true,
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
             modifier = Modifier.menuAnchor().width(120.dp)
         )
 
         ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-            taxString.forEach { item ->
-                DropdownMenuItem(text = { Text(text = item) }, onClick = {
-                    selectedText = item
+            taxRateOptions.forEachIndexed { index, option ->
+                DropdownMenuItem(text = { Text(text = taxRateStrings[index]) }, onClick = {
+                    selectedOption = option
                     expanded = false
+                    onItemChanged(item.copy(taxRate = option))
                 })
             }
         }
