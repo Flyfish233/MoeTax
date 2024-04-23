@@ -1,10 +1,10 @@
 package main
 
 /**
- * This is not the main entry of MoeTax GUI.
+ * This is not the entry of MoeTax GUI.
  */
 fun main() {
-    val packages = packageItems(testItems, 0.0497)
+    val packages = packageItems(testItems, 0.0497, 2)
 
     packages.forEachIndexed { index, pack ->
         println("Package ${index + 1}:")

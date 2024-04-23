@@ -11,13 +11,13 @@ import main.packageItems
 @Stable
 @Composable
 fun CalculateButton(
-    items: List<Item>, exchangeRate: Double, onPackageSummaryChanged: (List<Package>) -> Unit
+    items: List<Item>, exchangeRate: Double, packageLimit: Int, onPackageSummaryChanged: (List<Package>) -> Unit
 ) {
     Button(onClick = {
         if (items.isEmpty() || items.last().name.isBlank()) {
             return@Button
         }
-        val newPackageSummary = packageItems(items, exchangeRate)
+        val newPackageSummary = packageItems(items, exchangeRate, packageLimit)
         onPackageSummaryChanged(newPackageSummary)
     }) {
         Text("决定好了")

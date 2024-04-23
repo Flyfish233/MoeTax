@@ -17,7 +17,8 @@ import main.RATE
 @Stable
 @Composable
 fun ItemList(
-    exchangeRate: Double
+    exchangeRate: Double,
+    packageLimit: Int
 ) {
     var items by remember { mutableStateOf(listOf<Item>()) }
     var showDialog by remember { mutableStateOf(false) }
@@ -77,7 +78,7 @@ fun ItemList(
             Text("添加物品")
         }
         Spacer(modifier = Modifier.width(16.dp))
-        CalculateButton(items, exchangeRate) { newPackages ->
+        CalculateButton(items, exchangeRate, packageLimit) { newPackages ->
             packages = newPackages
         }
     }
