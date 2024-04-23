@@ -15,6 +15,10 @@ dependencyResolutionManagement {
     }
 }
 
+plugins{
+    id("de.fayard.refreshVersions") version "0.60.5"
+}
+
 rootProject.name = "MoeTax"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":composeApp")

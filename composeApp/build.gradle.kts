@@ -9,6 +9,14 @@ plugins {
 }
 
 kotlin {
+
+    sourceSets.all {
+        languageSettings {
+            languageVersion = "2.0"
+            apiVersion = "2.0"
+        }
+    }
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         moduleName = "composeApp"
@@ -26,14 +34,6 @@ kotlin {
         binaries.executable()
     }
 
-    // TODO: Looks like useless, remove in the future
-    androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "17"
-            }
-        }
-    }
 
     // For iToddlers
     listOf(
@@ -85,8 +85,8 @@ android {
         applicationId = "com.flyfish233.moetax"
         minSdk = 24
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.0.1"
+        versionCode = 3
+        versionName = versionCode.toString()
     }
 
     packaging {
