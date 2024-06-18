@@ -2,7 +2,7 @@ Kotlin Multiplatform
 Knapsack solver targeting Android,
 Web, iOS
 and Desktop,
-aiming for experiencing Compose Multiplatform.
+aiming for experience Compose Multiplatform.
 
 **MoeTax**
 是纯
@@ -241,7 +241,7 @@ Multiplatform
    1.12MB
    并延迟加载。但仍然不尽人意。
 2. [不支持任何快捷键。](https://github.com/JetBrains/compose-multiplatform/issues/4036)
-   无法执行任何键盘快捷键，包括全选、复制和粘贴。
+   无法执行任何键盘快捷键，包括全选、复制和粘贴。部分于 Kotlin 2.0 支持。
 3. 无法输入中文。输入法将只会调用英文输入法。
 4. 不支持软键盘。我们发现在需要时，
    Compose

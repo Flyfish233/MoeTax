@@ -6,15 +6,16 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 [versions]
 
-agp = "8.3.2"
+agp = "8.2.0"
 androidx-activityCompose = "1.9.0"
-compose = "1.7.0-alpha07"
-compose-plugin = "1.6.10-beta01"
-kotlin = "2.0.0-RC1"
-materialKolor = "1.4.4"
+compose = "1.7.0-beta03"
+compose-plugin = "1.7.0-dev1686"
+kotlin = "2.0.20-Beta1"
+materialKolor = "1.7.0"
 
 [libraries]
 
